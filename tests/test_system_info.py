@@ -6,17 +6,18 @@ def test_system_info_returns_dictionary():
 
 def test_system_info_contains_expected_keys():
     result = get_system_info()
-    expected_keys = ["hostname", "os_name", "os_version", "cpu_model"]
+    expected_keys = ["hostname", "os_name", "os_version", "cpu_model", "total_memory", "memory_available"]
     for key in expected_keys:
         assert key in result    
 
-def test_system_info_values_are_strings():
+def test_system_info_values_have_expected_types():
     result = get_system_info()
     assert isinstance(result["hostname"], str)
     assert isinstance(result["os_name"], str)
     assert isinstance(result["os_version"], str)    
     assert isinstance(result["cpu_model"], str)
-     
+    assert isinstance(result["total_memory"], float)
+    assert isinstance(result["memory_available"], float)
 
 
 
