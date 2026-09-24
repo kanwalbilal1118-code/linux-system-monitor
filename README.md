@@ -18,3 +18,4 @@ This project is a Python-based Linux system monitoring and automation tool. It a
 
 The purpose of this project is to help users quickly identify system errors and monitor important system resources. It processes log files, detects specific types of errors, and provides system information such as CPU usage and available storage, helping users save time when troubleshooting.
 # Git Module 2 Practice
+# Revert practice
