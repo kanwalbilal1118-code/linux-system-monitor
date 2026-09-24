@@ -1,0 +1,8 @@
+2026-09-12 10:00:01 INFO System started
+2026-09-12 10:01:15 INFO User logged in
+2026-09-12 10:02:30 ERROR Failed to connect to database
+2026-09-12 10:03:10 WARNING Disk usage is high
+2026-09-12 10:04:25 ERROR Permission denied
+2026-09-12 10:05:40 ERROR Failed to connect to database
+2026-09-12 10:06:12 INFO Backup completed
+2026-09-12 10:07:30 ERROR File not found
