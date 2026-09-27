@@ -4,13 +4,16 @@ import sys
 from src import main
 
 
-def test_main_runs_successfully():
+def test_main_runs_successfully(tmp_path):
+    log_file = tmp_path / "system.log"
+    log_file.write_text("Sample log content\n")
+
     result = subprocess.run(
         [
             sys.executable,
             "-m",
             "src.main",
-            "logs/system.log"
+            str(log_file)
         ],
         capture_output=True,
         text=True
