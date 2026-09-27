@@ -1,5 +1,37 @@
+# Virtual environments
 .venv/
+venv/
+env/
+
+# Python cache
 __pycache__/
+*.py[cod]
+
+# Testing
 .pytest_cache/
-*.pyc
+.coverage
+htmlcov/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# IDE / editor files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs generated locally
+*.log
+
+# Temporary files
+*.tmp
+*.swp
 reports/
