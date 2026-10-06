@@ -5,33 +5,16 @@ from pathlib import Path
 from src import main
 
 
-def test_main_runs_successfully(tmp_path):
+def test_main_runs_successfully(tmp_path, capsys):
     log_file = tmp_path / "system.log"
     log_file.write_text("Sample log content\n")
 
-    print("DEBUG log_file:", log_file)
-    print("DEBUG exists before subprocess:", log_file.exists())
-    print("DEBUG cwd:", Path.cwd())
-    print("DEBUG python:", sys.executable)
-    print("DEBUG content:", log_file.read_text())
+    result = main.main([str(log_file)])
 
-    result = subprocess.run(
-        [
-            sys.executable,
-            "-m",
-            "src.main",
-            str(log_file)
-        ],
-        capture_output=True,
-        text=True
-    )
+    captured = capsys.readouterr()
 
-    print("DEBUG returncode:", result.returncode)
-    print("DEBUG stdout:", result.stdout)
-    print("DEBUG stderr:", result.stderr)
-
-    assert result.returncode == 0
-    assert "Linux System Monitor" in result.stdout
+    assert result == 0
+    assert "Linux System Monitor" in captured.out
 
 def test_main_with_missing_log_file():
     result = subprocess.run(
