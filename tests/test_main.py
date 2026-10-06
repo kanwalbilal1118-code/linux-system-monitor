@@ -1,24 +1,20 @@
 import subprocess
 import sys
+from pathlib import Path
 
 from src import main
 
 
-def test_main_runs_successfully():
-    result = subprocess.run(
-        [
-            sys.executable,
-            "-m",
-            "src.main",
-            "logs/system.log"
-        ],
-        capture_output=True,
-        text=True
-    )
+def test_main_runs_successfully(tmp_path, capsys):
+    log_file = tmp_path / "system.log"
+    log_file.write_text("Sample log content\n")
 
-    assert result.returncode == 0
-    assert "Linux System Monitor" in result.stdout
+    result = main.main([str(log_file)])
 
+    captured = capsys.readouterr()
+
+    assert result == 0
+    assert "Linux System Monitor" in captured.out
 
 def test_main_with_missing_log_file():
     result = subprocess.run(

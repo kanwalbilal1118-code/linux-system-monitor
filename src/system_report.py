@@ -1,3 +1,6 @@
+import os
+
+
 def save_system_report(
     system_info,
     log_results,
@@ -5,6 +8,8 @@ def save_system_report(
     report_file,
     pipeline_info=None
 ):
+    os.makedirs(os.path.dirname(report_file) or ".", exist_ok=True)
+
     total_errors = sum(log_results.values())
 
     with open(report_file, "w") as report:
