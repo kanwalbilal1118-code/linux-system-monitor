@@ -13,7 +13,7 @@ def test_main_runs_successfully(tmp_path, capsys):
 
     captured = capsys.readouterr()
 
-    assert result == 0, f"STDERR: {captured.err}\nSTDOUT: {captured.out}"
+    assert result == 0
     assert "Linux System Monitor" in captured.out
 
 def test_main_with_missing_log_file():
