@@ -1,1 +1,1 @@
-procps
+printf "procps\ncoreutils\n" > packages.txt
